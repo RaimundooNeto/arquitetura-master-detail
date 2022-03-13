@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataBase } from './in-memory-database';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { InMemoryDataBase } from './in-memory-database';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataBase)
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataBase),
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
