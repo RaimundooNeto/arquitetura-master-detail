@@ -41,7 +41,7 @@ export class EntryService {
       flatMap(category => {
         entry.category = category;
 
-        return this.http.post(this.apiPath, Entry).pipe(
+        return this.http.post(this.apiPath, entry).pipe(
           catchError(this.handleError),
           map(this.jsonDataToEntry)
         )

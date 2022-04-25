@@ -30,7 +30,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
     mask: Number,
     scale: 2,
     thousandsSeparator: '',
-    padFractionaZeros: true,
+    padFractionalZeros: true,
     normalizeZeros: true,
     radix: ','
   };
@@ -108,7 +108,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
       date: [null, [Validators.required]],
       paid: [true, [Validators.required]],
       categoryId: [null, [Validators.required]],
-
+      description: [null]
     })
   }
 
