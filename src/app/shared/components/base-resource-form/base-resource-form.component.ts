@@ -19,18 +19,19 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
 
   protected route: ActivatedRoute;
   protected router: Router;
-  protected formBuilder: FormBuilder
+  protected formBuilder: FormBuilder;
+  protected toastr: ToastrService;
 
   constructor(
     protected injector: Injector,
     public resource: T,
     protected resourceService: BaseResourceService<T>,
     protected jsonDataToResourceFn: (jsonData) => T,
-    protected toastr: ToastrService
   ) {
     this.route = this.injector.get(ActivatedRoute);
     this.router = this.injector.get(Router);
     this.formBuilder = this.injector.get(FormBuilder);
+    this.toastr = this.injector.get(ToastrService);
    }
 
   ngOnInit() {
