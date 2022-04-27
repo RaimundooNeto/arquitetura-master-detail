@@ -3,13 +3,14 @@
 ></app-bread-crumb>
 
 <app-page-header
-page-title="Relatório de Receitas e Despesas"
-[show-button]="false"
+  page-title="Relatório de Receitas e Despesas"
+  [show-button]="false"
 ></app-page-header>
+
 
 <div class="card">
   <div class="card-header">
-    Selecione o mês e ano para gerar os relatórios
+    Selecione o Mês e Ano para gerar os relatórios
   </div>
 
   <div class="card-body">
@@ -17,7 +18,7 @@ page-title="Relatório de Receitas e Despesas"
       <div class="form-group col-md-7">
         <label for="month">Mês</label>
         <select #month name="month" id="month" class="form-control">
-          <option value="">Selecione o mês</option>
+          <option value="">Selecione um mês</option>
           <option value="1">Janeiro</option>
           <option value="2">Fevereiro</option>
           <option value="3">Março</option>
@@ -42,15 +43,13 @@ page-title="Relatório de Receitas e Despesas"
           <option value="2018">2018</option>
           <option value="2019">2019</option>
           <option value="2020">2020</option>
-          <option value="2021">2021</option>
-          <option value="2022">2022</option>
         </select>
       </div>
     </div>
 
     <div class="form-row">
       <div class="col-md text-right">
-        <button type="button" class="btn btn-primary">
+        <button type="button" (click)="generateReports()" class="btn btn-primary">
           Gerar Relatórios
         </button>
       </div>
@@ -65,7 +64,7 @@ page-title="Relatório de Receitas e Despesas"
     </div>
     <div class="card-body">
       <h3 class="card-title">
-        1500
+        {{revenueTotal}}
       </h3>
     </div>
   </div>
@@ -76,7 +75,7 @@ page-title="Relatório de Receitas e Despesas"
     </div>
     <div class="card-body">
       <h3 class="card-title">
-        500
+        {{expenseTotal}}
       </h3>
     </div>
   </div>
@@ -87,7 +86,7 @@ page-title="Relatório de Receitas e Despesas"
     </div>
     <div class="card-body">
       <h3 class="card-title">
-        1000
+        {{balance}}
       </h3>
     </div>
   </div>
@@ -97,10 +96,10 @@ page-title="Relatório de Receitas e Despesas"
 
 <div class="row mt-5 mb-4">
   <div class="col-md-6">
-    GRAFICO DE RECEITAS
+    <p-chart type="bar" [data]="revenueChartData" [options]="chartOptions"></p-chart>
   </div>
 
   <div class="col-md-6">
-    GRAFICO DE DESPESAS
+    <p-chart type="bar" [data]="expenseChartData" [options]="chartOptions"></p-chart>
   </div>
 </div>
